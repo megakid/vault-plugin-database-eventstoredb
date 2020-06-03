@@ -4,8 +4,8 @@ import (
 	"log"
 	"os"
 
+	elasticsearch "github.com/megakid/vault-plugin-database-eventstoredb"
 	"github.com/hashicorp/vault/api"
-	"github.com/hashicorp/vault/plugins/database/mysql"
 )
 
 func main() {
@@ -13,8 +13,7 @@ func main() {
 	flags := apiClientMeta.FlagSet()
 	flags.Parse(os.Args[1:])
 
-	err := mysql.Run(apiClientMeta.GetTLSConfig())
-	if err != nil {
+	if err := elasticsearch.Run(apiClientMeta.GetTLSConfig()); err != nil {
 		log.Println(err)
 		os.Exit(1)
 	}
