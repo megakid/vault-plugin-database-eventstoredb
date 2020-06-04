@@ -32,7 +32,7 @@ jobs:
     #        dep ensure
     #    fi
 
-    - run: go get gox
+    - run: go get github.com/mitchellh/gox
 
     - name: Build
       run: go build -v .
