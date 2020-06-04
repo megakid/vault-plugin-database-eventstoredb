@@ -97,11 +97,10 @@ type User struct {
 	LoginName string
 	Password  string
 	Groups    []string
-	FullName string
+	FullName  string
 }
 
-
-// 
+//
 func (c *Client) UserExists(ctx context.Context, name string) (bool, error) {
 	endpoint := "/users/" + name
 	method := http.MethodGet

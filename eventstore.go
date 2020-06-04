@@ -157,9 +157,9 @@ func (es *Eventstore) CreateUser(ctx context.Context, statements dbplugin.Statem
 
 	user := &User{
 		LoginName: username,
-		FullName: username,
-		Password: password,
-		Groups:   stmt.Groups,
+		FullName:  username,
+		Password:  password,
+		Groups:    stmt.Groups,
 	}
 
 	// Don't let anyone write the config while we're using it for our current client.
@@ -197,7 +197,7 @@ func (es *Eventstore) RevokeUser(ctx context.Context, statements dbplugin.Statem
 	}
 
 	var errs error
-	
+
 	// Same with the user. If it was already deleted on a previous attempt, there won't be an
 	// error.
 	if err := client.DeleteUser(ctx, username); err != nil {
@@ -207,14 +207,14 @@ func (es *Eventstore) RevokeUser(ctx context.Context, statements dbplugin.Statem
 }
 
 // SetCredentials is used to set the credentials for a database user to a
-// specific username and password. 
+// specific username and password.
 func (es *Eventstore) SetCredentials(ctx context.Context, statements dbplugin.Statements, staticConfig dbplugin.StaticUserConfig) (username string, password string, err error) {
 	username = staticConfig.Username
 	password = staticConfig.Password
 	if username == "" || password == "" {
 		return "", "", errors.New("must provide both username and password")
-	}	
-	
+	}
+
 	// Don't let anyone write the config while we're using it for our current client.
 	es.mux.RLock()
 	defer es.mux.RUnlock()
@@ -278,7 +278,7 @@ func newCreationStatement(statements dbplugin.Statements) (*creationStatement, e
 }
 
 type creationStatement struct {
-	Groups []string               `json:"groups"`
+	Groups []string `json:"groups"`
 }
 
 // buildClient is a helper method for building a client from the present config,

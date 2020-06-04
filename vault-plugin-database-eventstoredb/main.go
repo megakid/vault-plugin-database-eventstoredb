@@ -4,8 +4,8 @@ import (
 	"log"
 	"os"
 
-	elasticsearch "github.com/megakid/vault-plugin-database-eventstoredb"
 	"github.com/hashicorp/vault/api"
+	elasticsearch "github.com/megakid/vault-plugin-database-eventstoredb"
 )
 
 func main() {
