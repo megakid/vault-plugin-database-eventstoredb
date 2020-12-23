@@ -5,7 +5,7 @@ import (
 	"os"
 
 	"github.com/hashicorp/vault/api"
-	elasticsearch "github.com/megakid/vault-plugin-database-eventstoredb"
+	eventstore "github.com/megakid/vault-plugin-database-eventstoredb"
 )
 
 func main() {
@@ -13,7 +13,7 @@ func main() {
 	flags := apiClientMeta.FlagSet()
 	flags.Parse(os.Args[1:])
 
-	if err := elasticsearch.Run(apiClientMeta.GetTLSConfig()); err != nil {
+	if err := eventstore.Run(apiClientMeta.GetTLSConfig()); err != nil {
 		log.Println(err)
 		os.Exit(1)
 	}
