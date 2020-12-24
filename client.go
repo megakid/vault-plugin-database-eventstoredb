@@ -3,7 +3,6 @@ package eventstore
 /*
 This lightweight client implements only the methods needed for this secrets engine.
 It consumes this API:
-https://www.elastic.co/guide/en/elasticsearch/reference/6.6/security-api.html
 */
 
 import (
@@ -27,20 +26,20 @@ type ClientConfig struct {
 }
 
 // TLSConfig contains the parameters needed to configure TLS on the HTTP client
-// used to communicate with Elasticsearch.
+// used to communicate with Eventstore.
 type TLSConfig struct {
 	// CACert is the path to a PEM-encoded CA cert file to use to verify theHTTPClient
-	// Elasticsearch server SSL certificate.
+	// Eventstore server SSL certificate.
 	CACert string
 
 	// CAPath is the path to a directory of PEM-encoded CA cert files to verify
-	// the Elasticsearch server SSL certificate.
+	// the Eventstore server SSL certificate.
 	CAPath string
 
-	// ClientCert is the path to the certificate for Elasticsearch communication
+	// ClientCert is the path to the certificate for Eventstore communication
 	ClientCert string
 
-	// ClientKey is the path to the private key for Elasticsearch communication
+	// ClientKey is the path to the private key for Eventstore communication
 	ClientKey string
 
 	// TLSServerName, if set, is used to set the SNI host when connecting via
