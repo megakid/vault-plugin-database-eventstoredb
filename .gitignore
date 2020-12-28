@@ -1,4 +1,5 @@
 .vscode/
+.vault/
 
 # Binaries for programs and plugins
 *.exe
