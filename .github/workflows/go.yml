@@ -34,7 +34,7 @@ jobs:
       if: startsWith(github.ref, 'refs/tags/v')
       run: |
         go get github.com/mitchellh/gox
-        gox -arch="386 amd64" -os="windows linux darwin" ./cmd/vault-plugin-database-eventstoredb/.
+        gox -arch="386 amd64" -os="windows linux" ./cmd/vault-plugin-database-eventstoredb/.
         find . -type f -name "vault-plugin-database-eventstoredb_*" -exec gzip \{\} \;
 
     - name: Release
