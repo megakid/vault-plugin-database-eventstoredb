@@ -11,7 +11,7 @@
 ## Installation
 
 ### Manual install
-* Copy the binaries to your vault plugins directory
+* Copy the binaries (from [GitHub Releases](https://github.com/megakid/vault-plugin-database-eventstoredb/releases))  to your vault plugins directory
 * Configure vault to load the plugin from the directory of you choosing.
     * If running vault in dev mode, you can use `-dev-plugin-dir='/plugin/directory/path'`
     * For production use-cases, consult [Vault's documentation](https://www.vaultproject.io/docs/internals/plugins#plugin-directory)
